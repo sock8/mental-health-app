@@ -51,36 +51,69 @@ type 2 to find out about treatment methods,
 type 3 to find out about prevention methods and treatment methods""")
     valid = True
     while valid:
-        choice = int(input(""))
-        if choice == 1:
-            print(options[1])
+        try:
+            choice = int(input(""))
+            if choice == 1:
+                print(options[1])
+                break
+            elif choice == 2:
+                print(options[2])
+                break
+            elif choice == 3:
+                print(options[3])
+                break
+            else:
+                print("please type 1, 2 or 3")
+                valid = True
+        except ValueError:
+            print("please type 1, 2 or 3")
+
+def q5():
+    print("Would you like to conduct further researach")
+    Valid = False
+    while not Valid:
+        choice = input("Please enter yes or no")
+        if choice == "yes":
+            print("link to sources:"
+                  "Thank you for using my program")
             break
-        elif choice == 2:
-            print(options[2])
-            break
-        elif choice == 3:
-            print(options[3])
+        elif choice == "no":
+            print("Thank you for using my program")
             break
         else:
-            print("please type 1, 2 or 3")
-            valid = True
+            Valid = False
 
-name = input("Welcome to the mental health information hub, what is your name?")
-print("Hello {}, this program will help you learn more about mental health issues".format(name))
+Valid = True
+while Valid:
+    name = input("Welcome to the mental health information hub, what is your name?")
+    print("Hello {}, this program will help you learn more about mental health issues".format(name))
 
+    q1a = q1()
+    valid = False
+    while not valid:
+        more = input("Would you like to find out more about what mental health issues are? type yes or no")
+        if more == "yes":
+            q2a = q2(more)
+            break
+        elif more == "no":
+            break
+        else:
+            print("try again")
 
-q1a = q1()
-valid = False
-while not valid:
-    more = input("Would you like to find out more about what mental health issues are? type yes or no")
-    if more == "yes":
-        q2a = q2(more)
-        break
-    elif more == "no":
-        break
-    else:
-        print("try again")
+    yes_no = q3()
+    if yes_no == "yes":
+        q4()
 
-yes_no = q3()
-if yes_no == "yes":
-    q4()
+    q5()
+
+    Valid = False
+    print("Would you like to run the program again? Please enter 'yes' or 'no'")
+    while not Valid:
+        end = input()
+        if end == "yes":
+            Valid = True
+        elif end == "no":
+            break
+        else:
+            print("please type yes or no")
+            Valid = False
