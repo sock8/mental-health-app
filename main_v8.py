@@ -1,10 +1,12 @@
-#function for loop which makes sure the user inputs valid answers
+# function for loop which makes sure the user inputs valid answers
+
 
 def yesnocheck():
     options = ["YES", "Y", "NO", "N"]
     valid = False
+    # loop for making sure the user inputs a valid answer
     while not valid:
-        choice = input("please type 'yes' or 'no'").upper()
+        choice = input("Please type 'yes' or 'no'.").upper()
         if choice in options:
             return choice
         else:
@@ -19,7 +21,7 @@ def mentalhealth_overview():
     print("Would you like an overview of mental health issues?")
     choice = yesnocheck()
     if choice == "YES" or choice == "Y":
-        print("""Mental health issues are conditions that affect your mood,
+        print("""\nMental health issues are conditions that affect your mood,
         thinking and behaviour.
         Examples include depression, anxiety, bipolar disorder,
         schizophrenia,
@@ -34,26 +36,28 @@ def mentalhealth_overview():
 
 # function for displaying more information about mental health issues
 def moreaboutmentalhealth():
-    print("Would you like to find out more about what mental health issues are?")
+    print("\nWould you like to find out more about "
+          "what mental health issues are?")
     yes_no = yesnocheck()
-    options = {'causes': """causes of mental health issues include:
+    options = {'causes': """\nCauses of mental health issues include:
 Genetics, stressful environments, childhood trauma, stressful events,
 negative thoughts, unhealthy habits,
 drugs and alcohol, social isolation etc.\n""",
-               'symptoms': """symptoms of mental health issues include:
+               'symptoms': """\nSymptoms of mental health issues include:
 Confused thinking Excessive fears or worries, Extreme mood changes,
 Withdrawal from friends and activities,
 low energy, or problems sleeping,
 Extreme feelings of guilt, Suicidal thinking etc."""}
 
     if yes_no == "YES" or yes_no == "Y":
-        print("""what would you like to find out more about
+        print("""\nWhat would you like to find out more about
              mental health issues?
              Type 'c' to find out about the causes, 'e' to find out about
              the effects and 'b' to find out about both.""")
         valid = False
+        # loop for making the user input a valid answer
         while not valid:
-            choice = input("please type c or e or b").upper()
+            choice = input("Please type c or e or b").upper()
             if choice == "C":
                 print(options['causes'])
                 break
@@ -71,31 +75,32 @@ Extreme feelings of guilt, Suicidal thinking etc."""}
 
 # function for displaying ways to deal with mental health issues
 def mentalhealth_solution():
-    print("Would you like to know how you can deal with mental health"
+    print("\nWould you like to know how you can deal with mental health"
           " issues?")
     yes_no = yesnocheck()
 
-    options = {1: """ways to prevent mental health issues include:
+    options = {1: """\nWays to prevent mental health issues include:
 Avoidance of alcohol and drugs, Exercising, Improvement on your social life,
 meditation, Taking good rest,
 Seeking for help, etc.""",
-               2: """some treatment methods for mental health issues are:
+               2: """\nSome treatment methods for mental health issues are:
 Psychotherapy, Medication, Case management, Hospitalization, Support
-group, Self help plan and Peer support""",
-               3: """ways to prevent mental health issues include:
+group, Self help plan and Peer support etc.""",
+               3: """\nways to prevent mental health issues include:
 Avoidance of alcohol and drugs, Exercising, Improvement on your
 social life, meditation, Taking good rest,
 Seeking for help, etc.
 some treatment methods for mental health issues are:
 Psychotherapy, Medication, Case management, Hospitalization,
-Support group, Self help plan and Peer support"""}
+Support group, Self help plan and Peer support."""}
 
     if yes_no == "YES" or yes_no == "Y":
-        print("""Please select a topic to learn about;
+        print("""\nPlease select a topic to learn about;
     type 1 to find out about prevention methods,
     type 2 to find out about treatment methods,
-    type 3 to find out about prevention methods and treatment methods""")
+    type 3 to find out about prevention methods and treatment methods.""")
         valid = True
+        # loop making sure the user inputs a valid answer
         while valid:
             try:
                 choice = int(input(""))
@@ -109,38 +114,37 @@ Support group, Self help plan and Peer support"""}
                     print(options[3])
                     break
                 else:
-                    print("please type 1, 2 or 3")
+                    print("Please type 1, 2 or 3.")
                     valid = True
             except ValueError:
-                print("please type 1, 2 or 3")
+                print("Please type 1, 2 or 3.")
     else:
         return
 
 
-
 # function for providing links for further research to user
 def further_research():
-    print("Would you like to conduct further research?")
+    print("\nWould you like to conduct further research?")
     choice = yesnocheck()
     if choice == "YES" or choice == "Y":
-        print("""link to sources:
-'https://www.healthnavigator.org.nz/health-a-z/m/mental-health-conditions
-/#:~:text=Mental%20health%20conditions%20refer
-%20conditions'
-'https://www.health.govt.nz/your-health/conditions-and-treatments/mental
--health'
-'https://www.mayoclinic.org/diseases-conditions/mental-illness/symptoms
--causes/syc-20374968'\n""")
+        print("Link to sources:")
+        print('https://www.healthnavigator.org.nz/health-a-z/m/mental-health-'
+              'conditions/#:~:text=Mental%20health%20conditions%'
+              '20refer%20conditions')
+        print('https://www.health.govt.nz/your-health/conditions'
+              '-and-treatments/mental-health')
+        print('https://www.mayoclinic.org/diseases-conditions/'
+              'mental-illness/symptoms-causes/syc-20374968\n')
     else:
         pass
 
 # loop for repeating program
-Valid = True
-while Valid:
+valid = True
+while valid:
     name = input("Welcome to the mental health information hub, what is"
                  " your name?")
     print("Hello {}, this program will help you learn more about mental"
-          " health issues".format(name))
+          " health issues.".format(name))
 
     mentalhealth_overview()
 
@@ -156,6 +160,5 @@ while Valid:
     if end == "YES" or end == "Y":
         Valid = True
     else:
-        print("Thank you for using my program")
+        print("\nThank you for using my program.")
         break
-
